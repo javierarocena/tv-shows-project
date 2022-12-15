@@ -1,0 +1,8 @@
+import { NgModule } from '@angular/core';
+import { SearchBoxComponent } from './search-box.component';
+
+@NgModule({
+  exports: [SearchBoxComponent],
+  declarations: [SearchBoxComponent],
+})
+export class SearchBoxModule {}
