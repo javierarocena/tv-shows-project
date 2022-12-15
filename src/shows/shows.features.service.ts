@@ -10,4 +10,8 @@ export class ShowsFeaturesService {
   search(name: string): Promise<Show[]> {
     return this.repository.getByName(name) ?? [];
   }
+
+  async getSingleByName(name: string): Promise<Show | undefined> {
+    return (await this.search(name))[0];
+  }
 }
