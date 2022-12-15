@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.HomePageModule
       ),
   },
+  {
+    path: 'shows/:showName',
+    loadChildren: () =>
+      import('./pages/show-detail-page/show-detail-page.module').then(
+        (m) => m.ShowDetailPageModule
+      ),
+  },
 ];
 
 @NgModule({

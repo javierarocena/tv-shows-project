@@ -1,0 +1,12 @@
+<div>
+  <button (click)="onBackBtnPressed()">Back</button>
+  <div *ngIf="show">
+    <img [src]="show.image?.medium" [alt]="show.name" />
+    <div>
+      <h1>{{ show.name }}</h1>
+      <pre>{{ show.rating?.average }}</pre>
+      <p [innerHTML]="show.summary"></p>
+      <span *ngFor="let genre of show.genres">{{ genre }}</span>
+    </div>
+  </div>
+</div>
