@@ -9,6 +9,7 @@ import { ShowsFeaturesService } from 'src/shows/shows.features.service';
 })
 export class HomePageComponent {
   shows?: Show[];
+  currentSearch?: string;
   private defaultSearch = 'Mr.';
   private maxResults = 6;
 
@@ -19,6 +20,7 @@ export class HomePageComponent {
   }
 
   async search(name: string = this.defaultSearch) {
+    this.currentSearch = name;
     const result = await this.showsFeatures.search(name);
     result.length = this.maxResults;
     this.shows = result;
