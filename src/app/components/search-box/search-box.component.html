@@ -1,6 +1,7 @@
 <input
   class="input input-with-icon"
-  (change)="onSubmit($event)"
+  #input
+  (change)="onSubmit($event); input.value = ''"
   placeholder="Search shows..."
   type="search"
 />
