@@ -3,16 +3,10 @@
 
 <div class="shows">
   <app-grid>
-    <article
+    <app-show-item
+      *ngFor="let show of shows"
       [routerLink]="'/shows/' + show?.name"
-      *ngFor="let show of shows; let i = index"
-    >
-      <h3>{{ show.name }}</h3>
-      <app-stars-rating
-        *ngIf="show.rating?.average"
-        [value]="show.rating?.average"
-      ></app-stars-rating>
-      <app-image [src]="show.image?.medium"></app-image>
-    </article>
+      [show]="show"
+    ></app-show-item>
   </app-grid>
 </div>
