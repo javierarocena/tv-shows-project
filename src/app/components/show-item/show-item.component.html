@@ -1,0 +1,12 @@
+<div *ngIf="show">
+  <p>{{ show.name }}</p>
+  <app-stars-rating
+    *ngIf="show.rating?.average"
+    [value]="show.rating?.average"
+  ></app-stars-rating>
+  <app-image
+    class="thumbnail"
+    [src]="show.image?.medium"
+    [alt]="show.name"
+  ></app-image>
+</div>
