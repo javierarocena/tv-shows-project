@@ -1,16 +1,20 @@
 <div>
   <button (click)="onBackBtnPressed()">Back</button>
-  <div *ngIf="show">
-    <img [src]="show.image?.medium" [alt]="show.name" />
-    <div>
+  <div class="wrapper" *ngIf="show">
+    <img
+      *ngIf="show.image?.medium"
+      class="portrait"
+      [src]="show.image?.medium"
+      [alt]="show.name"
+    />
+    <div class="detail">
       <h1>{{ show.name }}</h1>
-      <pre>{{ show.rating?.average }}</pre>
       <app-stars-rating
         *ngIf="show.rating?.average"
         [value]="show.rating?.average"
       ></app-stars-rating>
       <p [innerHTML]="show.summary"></p>
-      <span *ngFor="let genre of show.genres">{{ genre }}</span>
+      <span *ngFor="let genre of show.genres" class="genres">{{ genre }}</span>
     </div>
   </div>
 </div>
