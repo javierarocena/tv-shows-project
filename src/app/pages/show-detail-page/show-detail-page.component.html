@@ -5,6 +5,10 @@
     <div>
       <h1>{{ show.name }}</h1>
       <pre>{{ show.rating?.average }}</pre>
+      <app-stars-rating
+        *ngIf="show.rating?.average"
+        [value]="show.rating?.average"
+      ></app-stars-rating>
       <p [innerHTML]="show.summary"></p>
       <span *ngFor="let genre of show.genres">{{ genre }}</span>
     </div>

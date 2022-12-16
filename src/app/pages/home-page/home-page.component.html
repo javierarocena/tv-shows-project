@@ -8,6 +8,10 @@
       *ngFor="let show of shows; let i = index"
     >
       <h3>{{ show.name }}</h3>
+      <app-stars-rating
+        *ngIf="show.rating?.average"
+        [value]="show.rating?.average"
+      ></app-stars-rating>
       <img [src]="show.image?.medium" />
     </article>
   </app-grid>
