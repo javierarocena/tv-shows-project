@@ -1,9 +1,14 @@
 <h1>TV Shows!</h1>
 <app-search-box (onSubmit)="search($event)"></app-search-box>
-<article
-  [routerLink]="'/shows/' + show?.name"
-  *ngFor="let show of shows; let i = index"
->
-  <h3>{{ show.name }}</h3>
-  <img [src]="show.image?.medium" />
-</article>
+
+<div class="shows">
+  <app-grid>
+    <article
+      [routerLink]="'/shows/' + show?.name"
+      *ngFor="let show of shows; let i = index"
+    >
+      <h3>{{ show.name }}</h3>
+      <img [src]="show.image?.medium" />
+    </article>
+  </app-grid>
+</div>
