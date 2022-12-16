@@ -1,0 +1,30 @@
+.input {
+  width: 200px;
+  color: rgb(36, 35, 42);
+  font-size: 0.8rem;
+  line-height: 20px;
+  min-height: 28px;
+  border-radius: 4px;
+  padding: 4px 8px;
+  border: 2px solid transparent;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  transition: all 0.1s ease 0s;
+  background: rgb(251, 251, 251);
+
+  &-with-icon {
+    padding-left: 32px;
+    background-image: url(/assets/icons/search.icon.svg);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 6px;
+
+    &:focus {
+      padding-left: 8px;
+      background-position: -100%;
+    }
+  }
+
+  &:focus {
+    border: 2px solid rgb(124, 138, 255);
+  }
+}
