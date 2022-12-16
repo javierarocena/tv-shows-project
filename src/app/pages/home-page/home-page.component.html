@@ -1,12 +1,18 @@
-<h1>TV Shows!</h1>
-<app-search-box (onSubmit)="search($event)"></app-search-box>
-
-<div class="shows">
-  <app-grid>
-    <app-show-item
-      *ngFor="let show of shows"
-      [routerLink]="'/shows/' + show?.name"
-      [show]="show"
-    ></app-show-item>
-  </app-grid>
+<div class="wrapper">
+  <div class="header">
+    <h1 class="title">
+      <span class="logo">TV</span>
+      Shows!
+    </h1>
+    <app-search-box (onSubmit)="search($event)"></app-search-box>
+  </div>
+  <div class="shows">
+    <app-grid>
+      <app-show-item
+        *ngFor="let show of shows"
+        [routerLink]="'/shows/' + show?.name"
+        [show]="show"
+      ></app-show-item>
+    </app-grid>
+  </div>
 </div>
