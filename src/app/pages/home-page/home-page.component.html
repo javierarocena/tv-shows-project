@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="header">
-    <h1 class="title" (click)="search()">
+    <h1 class="title" (click)="search()" hoverable>
       <span class="logo">TV</span>
       Shows!
     </h1>
@@ -10,9 +10,12 @@
   <div class="shows">
     <app-grid>
       <app-show-item
-        *ngFor="let show of shows"
+        *ngFor="let show of shows; let i = index"
         [routerLink]="'/shows/' + show?.name"
         [show]="show"
+        [style.animationDelay.s]="0.04 * i"
+        anim-fade-in
+        hoverable
       ></app-show-item>
     </app-grid>
   </div>

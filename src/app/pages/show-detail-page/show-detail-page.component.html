@@ -1,13 +1,14 @@
 <div>
-  <button (click)="onBackBtnPressed()">Back</button>
+  <button (click)="onBackBtnPressed()" anim-fade-in>Back</button>
   <div class="wrapper" *ngIf="show">
     <img
       *ngIf="show.image?.medium"
       class="portrait"
+      anim-slide-right
       [src]="show.image?.medium"
       [alt]="show.name"
     />
-    <div class="detail">
+    <div class="detail" anim-slide-right>
       <h1>{{ show.name }}</h1>
       <app-stars-rating
         *ngIf="show.rating?.average"
