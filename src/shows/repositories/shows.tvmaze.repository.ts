@@ -10,7 +10,7 @@ interface ServerShow {
 export class ShowsTVMazeRepository implements ShowsRepository {
   getByName(name: string): Promise<Response<Show[]>> {
     return new Promise((resolve) => {
-      fetch(`http://api.tvmaze.com/search/shows?q=${name}`)
+      fetch(`https://api.tvmaze.com/search/shows?q=${name}`)
         .then(async (res) => {
           const a = (await res.json()) ?? [];
           resolve({
