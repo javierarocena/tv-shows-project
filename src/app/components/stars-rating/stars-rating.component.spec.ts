@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxStarsModule } from 'ngx-stars';
 
 import { StarsRatingComponent } from './stars-rating.component';
 
@@ -8,9 +9,9 @@ describe('StarsRatingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StarsRatingComponent ]
-    })
-    .compileComponents();
+      imports: [NgxStarsModule],
+      declarations: [StarsRatingComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StarsRatingComponent);
     component = fixture.componentInstance;
