@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .error {
+    width: 92px;
+    height: 92px;
+  }
+}

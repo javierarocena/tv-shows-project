@@ -10,6 +10,7 @@ import { ShowsFeaturesService } from 'src/shows/shows.features.service';
 })
 export class ShowDetailPageComponent {
   show?: Show;
+  isError = false;
 
   constructor(
     public showsFeatures: ShowsFeaturesService,
@@ -17,9 +18,19 @@ export class ShowDetailPageComponent {
     private route: ActivatedRoute
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     const name = this.route.snapshot.paramMap.get('showName')!;
-    this.show = await this.showsFeatures.getSingleByName(name);
+    this.getShowByName(name);
+  }
+
+  private async getShowByName(name: string) {
+    const { result, error } = await this.showsFeatures.getSingleByName(name);
+    if (error) return this.onSearchError();
+    this.show = result;
+  }
+
+  private onSearchError() {
+    this.isError = true;
   }
 
   onBackBtnPressed() {

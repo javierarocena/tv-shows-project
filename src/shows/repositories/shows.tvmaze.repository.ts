@@ -1,5 +1,6 @@
 import { Show } from '../show.model';
 import { ShowsRepository } from './shows.repository.model';
+import { Response } from '../response.model';
 
 interface ServerShow {
   score: number;
@@ -7,12 +8,29 @@ interface ServerShow {
 }
 
 export class ShowsTVMazeRepository implements ShowsRepository {
-  getByName(name: string): Promise<Show[]> {
-    return new Promise(async (resolve) => {
-      const res = await fetch(`http://api.tvmaze.com/search/shows?q=${name}`);
-      const a = (await res.json()) ?? [];
-      resolve(a.map((b: ServerShow) => this.showMapper(b)));
+  getByName(name: string): Promise<Response<Show[]>> {
+    return new Promise((resolve) => {
+      fetch(`http://api.tvmaze.com/search/shows?q=${name}`)
+        .then(async (res) => {
+          const a = (await res.json()) ?? [];
+          resolve({
+            result: a.map((b: ServerShow) => this.showMapper(b)),
+          });
+        })
+        .catch((error) => {
+          resolve({
+            error,
+          });
+        });
     });
+  }
+
+  async getSingleByName(name: string): Promise<Response<Show>> {
+    const { result, error } = await this.getByName(name);
+    return {
+      error,
+      result: result?.length ? result[0] : undefined,
+    };
   }
 
   private showMapper(serverShow: ServerShow): Show {

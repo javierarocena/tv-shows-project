@@ -18,4 +18,5 @@
       <span *ngFor="let genre of show.genres" class="genres">{{ genre }}</span>
     </div>
   </div>
+  <app-error *ngIf="isError"></app-error>
 </div>
