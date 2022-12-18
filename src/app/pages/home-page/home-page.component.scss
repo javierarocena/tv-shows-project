@@ -37,3 +37,10 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: 552px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
